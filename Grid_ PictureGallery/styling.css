@@ -1,0 +1,29 @@
+/*Let's make sure that the dimensions of any box includes its border and padding, this gives us an easy way of sizing our elements*/
+* {
+  box-sizing: border-box;
+}
+/* convert container to flexbox */
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "a b c d"
+    "e f g h"
+    "i j k l"
+    "m n o p";
+  padding: 7px;
+  grid-gap: 5px;
+  align-items: center;
+}
+/* set image size to max width */
+.container > img {
+  max-width: 100%;
+}
+
+/* span or merge */
+.container > img:nth-child(6) {
+  /* grid-column: span 2; */
+  /* grid-row: span 2; */
+  grid-area: f/f/k/k;
+}
